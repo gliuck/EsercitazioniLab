@@ -4,96 +4,140 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Mar 25, 2019, 9:34:47 AM
-    Author     : bardoz
+    Created on : 25-mar-2019, 9.35.15
+    Author     : nontenefrega
 */
 
+/*voglio fare una pagina dark*/
+/*esercitazione su layout css*/
+/*scrivo la regola */
+
 *{
-    box-sizing:border-box;
+    /*mettiamo la prima regola slide 37, box model, dimensioniamo
+    slide 74 costruire css  box sizing  e border box vanno sempre messi*/
+    
+    box-sizing: border-box; 
+    /*Voglio vedere i bordi quindi userÃ² border color*/
     border-color: steelblue;
 }
-
-/* Style */
-
-body {
-   font-family: "Open Sans", Arial, sans-serif;
-   background: #333333;
-   color: white;
+body{ /*creo la mia regola *//* voglio scrivere le proprietÃ  */
+ /* font-size: 14px;    14pixel il font delle lettere*/
+ font-family: "Open Sans", Arial, sans-serif; /* il principale Ã¨ open sans, gli altri dopo la virgola verranno usati come scorta in tal caso che il browser non supporti certi font*/
+ color:white;  /* Colore lettere*/ /* se ci viene chiesto di utilizzare n esadecimale, allora inseriamo il valore in esadecimale*/
+ background: #333333; /* grigio scuro sfondo*/
 }
 
-h1, h2, h3{
-    color: #35E0B1;
+/*voglio cambiare i titoli di un colore diverso*/
+h1,h2,h3{
+    color:greenyellow;
 }
 
+/*CAmbio colore dei box cosÃ¬ da avere meno contrasto con lo sfondo*/
 input {
     background: teal;
-    color: white;
 }
-
-input:focus {
+/*quando click il mouse sul box cambia colore*/
+input:focus{
     color: whitesmoke;
     background: salmon;
 }
 
+/*regole per modificare il colore del link*/
 a:visited {
     color: red;
 }
 
 a:link {
-    color:white;
+    color: white;
 }
 
-a:active{
-    color:blueviolet;
+a:active {
+    color: white;
+    
 }
 
-ol {
+/*voglio vedere  numeri romani nella lista di articoli*/
+
+ol{
     list-style-type: upper-roman;
 }
+/*Ora lavoriamo sul layout, spostiamo i blocchi dove voglio io etc*/
+/*Layout*/
+/*voglio l'immagine a sinistra.., voglio fissare l' header ad un altezza ben precisa'*/
 
-/* Layout */
 
-header {
-    border-width: medium;
-    border-style: solid;
+/*mettiamo i bordi all' header*/
+
+header{
+    border-width:  medium;
+    border-style: solid; /*riga continua solid*/
+    
 }
 
-
-
-#logodiv{
-    position: relative;
+#logodiv{  /* voglio l'immagine  a sx, ma se mettessi height 150px la pagina si rompre perchÃ¨ l'immagine Ã¨ troppo grande, quindi l' immagine non deve s
+           sbordare, come faccio?
+    <img  class="logoimg"  questo lo aggiungo in html cosÃ¬ lo posso richiamare nel css
+    */
     height: 150px;
-}
-
-.logoimg {
-    height:100%;
-}
-
-#logotitle {
-    position: absolute;
-    display: inline;
-}
-
-nav ul li{
-   border-style: solid;
-   border-radius: 20px;
-   list-style: none; 
-   padding:14px;
-   float: right;
-}
-
-nav ul li:first-child {
-   width: 30%;
-}
-
-nav ul {
-    margin: 0px;
     position: relative;
+    
 }
 
-nav{
-    border-style: solid;
-    border-width: medium;
-    float: left;
-    width: 100%;
+.logoimg{
+    height: 100%;
 }
+/*devo impedire  al titoli di andare sotto, in html lo chiamo logotitle per richiamarlo qua e modificarlo
+static
+relative: ci permette di posizionare l elemento  (se fosse static)
+absolute fa una ricerca nel suo albero, con un valore di position diverso da static*/
+#logotitle{
+    position: absolute;/*voglio spostare i lbox del titolo, metto position relative su logodiv, cosÃ¬ quando faccio 
+    modifiche, riuscirÃ² a modificare in modo prevedibile, perche altrimenti si sarebbe rotto in futuro la pagina
+    mentre adesso si rifarÃ  al postion relative e sarÃ  piÃ¹ prevedibile*/
+    display:  inline;
+    
+}
+ /*Voglio mettere la lista in orizzontale, e senza palline, o col bordo visibile etc*/
+ /* essendo li, i link, il parent Ã¨ il nav, (quindi la regola da scrivere nel nav, nav ul li)   */
+ nav ul li { /*scelgo il nav percÃ¨ Ã¨ il padre del link di li nella pagina html, di solito il nav contiene i link*/
+     /*tolgo il pallino dal link (quindi non sarÃ  piÃ¹ una lista)*/
+     list-style:  none;
+     /*voglio il borso*/
+     border-style: solid;
+     /*Li voglio in fila orizzontale*/
+     float: right;
+     /*arrotondiamo i bordi*/
+     border-radius: 20px;
+     /*staccare la scritta dal bordo (allargiamo il bordo)*/
+      padding: 14px;
+      
+     
+ }
+ /*se volessi solo home diverso dagli altri?(esteticamente)
+  se prendo il first child ovvero prendo il padre  e seleziono il suo primo figlio che sarÃ  home
+il primo degli elementi si cerca cosiÃ¬--  nav ul li: first- child */
+ nav ul li:first-child
+ {
+     width: 30%;
+ }
+ 
+ /*Tra l' header e il  bordo del link, c'Ã¨ il margine ovvero c'Ã¨ uno spazzietto'
+ si trova quello spazzietto sul nav (andando a vedere ispeziona su chrome)
+ */
+ 
+ nav ul{
+     
+    /* padding:distanza tra contenuto e il bordo slide 38*/
+    /*uso relative quindi tutti i calcoli che si basano sul controllo degli antenati vengono cambiati*/
+    position: relative;
+ }
+ 
+ /*voglio lasciare il bordo tutto a destra per averlo staccato dal resto*/
+ 
+ nav {
+     margin-top: 10px;
+     
+     border-style: solid;
+     border-width: medium;
+     float: right;
+ }
