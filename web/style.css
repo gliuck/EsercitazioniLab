@@ -141,3 +141,42 @@ il primo degli elementi si cerca cosiÃ¬--  nav ul li: first- child */
      border-width: medium;
      float: right;
  }
+ 
+ #main_content::after{ /*per ora non fa nulla perchè all'initerno non ho float, questa sarebbe la classe row della slide 76*/
+     clear: both;
+     content: "";
+     display: table;
+     
+ }
+ #main_content{
+     border-style: solid;
+     border-width: medium;
+ }
+ 
+ aside{
+     float:left; 
+     /*devo dirgli quanto la singola colonna sia larga*/
+     width: 20%;
+     
+ }
+ main{
+     float:left ; /* la larghezza dipendere del contenuto, questo non va bene dobbiamo risolvere*/
+     /*la somma deve sempre dare 100% */
+     width: 80%;
+     border-style: solid;
+     border-width: medium;
+     
+ }
+ footer{ /* colonna lunga width 100% */
+     
+     float:left;
+     clear: both;
+     width: 100%; 
+     text-align: center; /* voglio centrare il contenuto*/
+ }
+ 
+ /*ora vediamo come inserire un sever
+ */
+ 
+ 
+ 
